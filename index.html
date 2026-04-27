@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cifrado César - Teoría y Práctica</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="header">
+        <h1>Cifrado César: Criptografía Clásica</h1>
+        <p>Aprende cómo funciona el desplazamiento de caracteres</p>
+    </div>
+
+    <div id="main-content">
+        
+        <div class="columna">
+            <h2>¿Qué es el Cifrado César?</h2>
+            <p>Es una técnica de cifrado por sustitución en la que cada letra del texto original es reemplazada por otra letra que se encuentra un número fijo de posiciones más adelante en el alfabeto.</p>
+            <p>Por ejemplo, con un desplazamiento de <strong>3</strong>:</p>
+            <ul>
+                <li>La <strong>A</strong> se convierte en <strong>D</strong></li>
+                <li>La <strong>B</strong> se convierte en <strong>E</strong></li>
+            </ul>
+        </div>
+
+        <div class="columna">
+            <h2>Lógica en Octave</h2>
+            <p>El código utiliza la tabla ASCII y la fórmula:</p>
+            <div class="formula">
+                C = (P + k) mod 26
+            </div>
+            <p>Donde <strong>P</strong> es la posición original, <strong>k</strong> es la clave y <strong>26</strong> es el tamaño del alfabeto.</p>
+        </div>
+
+        <div style="clear: both;"></div>
+
+        <div id="formulario-seccion">
+            <h2>Prueba el Concepto</h2>
+            <p>Simula cómo se enviaría la información a un script de Octave:</p>
+            <form action="#">
+                <label for="mensaje">Mensaje Original:</label><br>
+                <input type="text" id="mensaje" name="mensaje" placeholder="Ej: HOLA MUNDO"><br><br>
+
+                <label for="clave">Clave de Desplazamiento:</label><br>
+                <input type="number" id="clave" name="clave" value="3"><br><br>
+
+                <input type="submit" value="Simular Cifrado">
+            </form>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        <p>Nicolás Patzi - Ingeniería de Sistemas Informáticos</p>
+    </div>
+
+</body>
+</html>

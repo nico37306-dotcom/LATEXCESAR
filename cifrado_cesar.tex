@@ -1,0 +1,84 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{octavestyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\title{Implementación del Cifrado César en Octave}
+\author{Nicolás Patzi}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+El cifrado César es una técnica de sustitución simple donde cada letra en el texto original es reemplazada por otra que se encuentra un número fijo de posiciones más adelante en el alfabeto.
+
+\section{Explicación del Código}
+El programa sigue los siguientes pasos lógicos:
+\begin{itemize}
+    \item \textbf{Captura de datos:} Solicita una cadena de texto y un desplazamiento entero.
+    \item \textbf{Normalización:} Convierte todo a mayúsculas para simplificar el manejo de índices ASCII.
+    \item \textbf{Cálculo de Desplazamiento:} Se resta el valor 65 (ASCII de 'A') para trabajar en un rango 0-25, se aplica la operación módulo 26 y se suma 65 nuevamente.
+\end{itemize}
+
+\section{Prueba de Escritorio}
+Para un mensaje "ABC" con clave 1:
+\begin{enumerate}
+    \item 'A' (65) $\rightarrow$ $(65-65+1) \pmod{26} + 65 = 66$ ('B')
+    \item 'B' (66) $\rightarrow$ $(66-65+1) \pmod{26} + 65 = 67$ ('C')
+    \item 'C' (67) $\rightarrow$ $(67-65+1) \pmod{26} + 65 = 68$ ('D')
+\end{enumerate}
+
+\section{Código en Octave}
+\begin{lstlisting}[language=Octave, style=octavestyle]
+% Entrada de datos
+mensaje = input('Introduce el mensaje a cifrar: ', 's'); 
+clave = input('Introduce la clave numerica: ');
+
+alfabeto_inicio = 65; 
+tamano_alfabeto = 26;
+
+mensaje_preparado = upper(mensaje);
+mensaje_numerico = double(mensaje_preparado);
+cifrado_numerico = mensaje_numerico;
+
+for i = 1:length(mensaje_numerico)
+    if mensaje_numerico(i) >= 65 && mensaje_numerico(i) <= 90
+        posicion = mensaje_numerico(i) - alfabeto_inicio;
+        nueva_posicion = mod(posicion + clave, tamano_alfabeto);
+        cifrado_numerico(i) = nueva_posicion + alfabeto_inicio;
+    end
+end
+
+fprintf('Mensaje Cifrado: %s\n', char(cifrado_numerico));
+\end{lstlisting}
+
+\end{document}

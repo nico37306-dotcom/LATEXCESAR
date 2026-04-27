@@ -1,0 +1,102 @@
+/* Estilos generales */
+body {
+    background-color: #f0f2f5;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centrado para elementos inline-block */
+}
+
+/* Encabezado Llamativo */
+#header {
+    background: #1a2a6c; /* Degradado clásico */
+    background: linear-gradient(to right, #b21f1f, #fdbb2d, #1a2a6c);
+    color: white;
+    padding: 50px 20px;
+    border-bottom: 8px solid #333;
+}
+
+#header h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px #000;
+    margin: 0;
+}
+
+/* Contenedor Principal */
+#main-content {
+    width: 900px;
+    margin: 30px auto;
+    text-align: left;
+    background: white;
+    padding: 40px;
+    border: 1px solid #ccc;
+    box-shadow: 10px 10px 0px #2c3e50; /* Sombra estilo retro */
+}
+
+/* Columnas sin Flexbox (usando inline-block) */
+.columna {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    margin-right: 4%;
+    background: #fdfdfd;
+}
+
+h2 {
+    color: #1a2a6c;
+    border-bottom: 3px solid #fdbb2d;
+    display: inline-block;
+}
+
+.formula {
+    background: #333;
+    color: #00ff00;
+    padding: 15px;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 8px;
+}
+
+/* Formulario */
+#formulario-seccion {
+    margin-top: 40px;
+    padding: 30px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 15px;
+}
+
+input[type="text"], input[type="number"] {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background: #fdbb2d;
+    color: #333;
+    padding: 15px 30px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s; /* Aunque no hay JS, el hover de CSS es válido */
+}
+
+input[type="submit"]:hover {
+    background: #fff;
+    color: #b21f1f;
+}
+
+/* Pie de página */
+#footer {
+    margin-top: 50px;
+    padding: 20px;
+    background: #333;
+    color: #888;
+    font-size: 0.9em;
+}
